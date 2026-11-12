@@ -1,37 +1,13 @@
-
 <h2>Registered Students</h2>
 
 @if (students.length > 0) {
 
-  <table>
+  @for (student of students; track student.id) {
 
-    <thead>
-      <tr>
-        <th>S.No</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Department</th>
-        <th>Email</th>
-      </tr>
-    </thead>
+    <app-student-card [student]="student">
+    </app-student-card>
 
-    <tbody>
-
-      @for (student of students; track student.id) {
-
-        <tr>
-          <td>{{ $index + 1 }}</td>
-          <td>{{ student.name }}</td>
-          <td>{{ student.age }}</td>
-          <td>{{ student.department }}</td>
-          <td>{{ student.email }}</td>
-        </tr>
-
-      }
-
-    </tbody>
-
-  </table>
+  }
 
 }
 @else {

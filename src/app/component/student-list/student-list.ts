@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService, StudentRec } from '../../service/student';
+import { StudentCard } from '../student-card/student-card';
 
 @Component({
   selector: 'app-student-list',
-  imports: [],
+  imports: [StudentCard],
   standalone: true,
   templateUrl: './student-list.html',
   styleUrl: './student-list.css'
@@ -23,4 +24,3 @@ export class StudentList implements OnInit {
   }
 
 }
-
