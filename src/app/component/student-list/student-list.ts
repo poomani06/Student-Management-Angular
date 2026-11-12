@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService, StudentRec } from '../../service/student';
 
 @Component({
   selector: 'app-student-list',
@@ -9,14 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentList implements OnInit {
 
-  students: any[] = [];
+  students: StudentRec[] = [];
+
+  constructor(
+    private studentService: StudentService
+  ) {}
 
   ngOnInit() {
 
-    this.students = JSON.parse(
-      localStorage.getItem('students') || '[]'
-    );
+    this.students = this.studentService.getStudent();
 
   }
 
 }
+
